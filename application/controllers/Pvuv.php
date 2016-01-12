@@ -10,8 +10,7 @@ class Pvuv extends CI_Controller {
         if($this->uri->segment(3) != ""){
             $time = $this->uri->segment(3);
         }else{
-            date_default_timezone_set('PRC');
-            $time = date('m-d');
+            $time = "";
         }
         $data['pvuv_data'] = $this->pvuv_model->pvuv_data($time); 
 

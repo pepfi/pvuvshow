@@ -4,8 +4,12 @@ class Pvuv_model extends CI_Model {
        parent::__construct();
     }
     
-    public function pvuv_data($time){       
-        $sql = "SELECT * FROM `pvuv-data` where time='{$time}'";
+    public function pvuv_data($time){
+        if($time){
+            $sql = "SELECT * FROM `pvuv-data` where time='{$time}'";
+        }else{
+             $sql = "SELECT * FROM `pvuv-data`";           
+        }
         $result = $this->db->query($sql)->result_array();
         
         return $result;
