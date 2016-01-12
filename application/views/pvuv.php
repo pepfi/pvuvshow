@@ -4,12 +4,13 @@
         <title>数据</title>
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
-        <link href='<?php echo base_url(); ?>application/views/bootstrap/css/bootstrap.css' rel='stylesheet'>
+        <link href='<?php echo base_url(); ?>application/views/bootstrap/css/bootstrap.min.css' rel='stylesheet'>
     </head>
 	<body>
         <div id="container">
             <div class="row">
                 <div class="col-md-3">PV/UV</div>
+                <div class="col-md-3"><a href="/Pvuv">所有</a></div>
                 <div class="col-md-3"><?php date_default_timezone_set('PRC');$time = date('m-d'); echo "<a href='/Pvuv/index/".$time."'>";?>今天</a></div>
                 <div class="col-md-3"><?php $time = date('m-d',strtotime("-1 day")); echo "<a href='/Pvuv/index/".$time."'>";?>昨天</a></div>
             </div>
