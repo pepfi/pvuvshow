@@ -11,6 +11,7 @@ class Updata_model extends CI_Model {
         $flag = 0;
         $num=0;    //用来记录目录下的文件个数
         $dirname='D:\nginx\github\pvuvshow\log'; //要遍历的目录名字
+        //$dirname='/mnt/weianying/log'; //要
         $dir_handle=opendir($dirname);
         while($file=readdir($dir_handle))
         {

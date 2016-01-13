@@ -24,7 +24,7 @@ class Pvuv_model extends CI_Model {
         return $this->db->query($sql)->result_array();
     }
     public function detail(){
-        $sql = "SELECT * FROM `pvuv-data`";           
+        $sql = "SELECT * FROM `pvuv-data` order by time desc";           
         $result = $this->db->query($sql)->result_array();
         
         return $result;
