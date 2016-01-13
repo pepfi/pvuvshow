@@ -4,14 +4,30 @@ class Pvuv_model extends CI_Model {
        parent::__construct();
     }
     
-    public function pvuv_data($time){
-        if($time){
-            $sql = "SELECT * FROM `pvuv-data` where time='{$time}'";
-        }else{
-             $sql = "SELECT * FROM `pvuv-data` order by time desc";           
-        }
+    public function totalPvUv(){
+        $sql = "select * from `pvuv-data`";
+        
+        return $this->db->query($sql)->result_array();
+    }
+    public function todayPvUv(){
+        date_default_timezone_set('PRC'); 
+        $date = date("y-m-d");
+        $sql = "select * from `pvuv-data` where time = '{$date}'";
+        
+        return $this->db->query($sql)->result_array();
+    }
+    public function yesterdayPvUv(){
+        date_default_timezone_set('PRC'); 
+        $date = date("Y-m-d",strtotime("-1 day"));
+        $sql = "select * from `pvuv-data` where time = '{$date}'";
+        
+        return $this->db->query($sql)->result_array();
+    }
+    public function detail(){
+        $sql = "SELECT * FROM `pvuv-data`";           
         $result = $this->db->query($sql)->result_array();
         
         return $result;
     }
+    
 }

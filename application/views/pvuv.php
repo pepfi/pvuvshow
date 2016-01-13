@@ -2,48 +2,56 @@
 <html>
     <head>
         <title>数据</title>
-        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-        <meta name='viewport' content='width=device-width, initial-scale=1'>
-        <link href='application/views/bootstrap/css/bootstrap.css' rel='stylesheet'>
     </head>
 	<body>
         <div id="container">
-            <div class="row">
-                <div class="col-md-3">PV/UV</div>
-                <div class="col-md-3"><a href="/Pvuv">所有</a></div>
-                <div class="col-md-3"><?php date_default_timezone_set('PRC');$time = date('y-m-d');?>
-                <a href="<?php echo base_url('Pvuv/index')."/".$time;?>">今天</a></div>
-                <div class="col-md-3"><?php $time = date('y-m-d',strtotime("-1 day"));?>
-                <a href="<?php echo base_url('Pvuv/index')."/".$time;?>">昨天</a></div>
-            </div>
-            <div class="row">
-                        <div class="col-md-1">mac</div>
-                        <div class="col-md-1">time</div>
-                        <div class="col-md-1">pv</div>
-                        <div class="col-md-2">download_app_times</div>
-                        <div class="col-md-1">uv</div>
-                        <div class="col-md-1">uv_andriod</div>
-                        <div class="col-md-1">uv_ios</div>
-                        <div class="col-md-1">uv_windows</div>
-                        <div class="col-md-1">uv_others</div>
-                        <div class="col-md-1">&nbsp;</div>
-                        <div class="col-md-1">&nbsp;</div>
-            </div>
-            <div class="row">
-                    <?php foreach($pvuv_data as $row):?>
-                        <div class="col-md-1"><?php echo $row['mac'];?></div>
-                        <div class="col-md-1"><?php echo $row['time'];?></div>
-                        <div class="col-md-1"><?php echo $row['pv'];?></div>
-                        <div class="col-md-2"><?php echo $row['download_app_times'];?></div>
-                        <div class="col-md-1"><?php echo $row['uv'];?></div>
-                        <div class="col-md-1"><?php echo $row['uv_android'];?></div>
-                        <div class="col-md-1"><?php echo $row['uv_ios'];?></div>
-                        <div class="col-md-1"><?php echo $row['uv_windows'];?></div>
-                        <div class="col-md-1"><?php echo $row['uv_others'];?></div>             
-                        <div class="col-md-2">&nbsp;</div>
-                    <?php endforeach?>
-            </div>
+            <table>
+                <tr>
+                    <td width="15%">总Pv</td>
+                    <td width="15%">总Uv</td>
+                    <td width="15%">今天Pv</td>
+                    <td width="15%">今天Uv</td>
+                    <td width="15%">昨天Pv</td>
+                    <td width="15%">昨天Uv</td>
+                </tr>
+                <tr>
+                    <td width="15%"><?php echo $totalpv;?></td>
+                    <td width="15%"><?php echo $totaluv;?></td>
+                    <td width="15%"><?php echo $todaypv;?></td>
+                    <td width="15%"><?php echo $todayuv;?></td>
+                    <td width="15%"><?php echo $yesterdaypv;?></td>
+                    <td width="15%"><?php echo $yesterdayuv;?></td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td width="%">详情</td>
+                </tr>
+                <tr>
+                    <td width="10%">mac</td>
+                    <td width="10%">time</td>
+                    <td width="10%">pv</td>
+                    <td width="20%">download_app_times</td>
+                    <td width="10%">uv</td>
+                    <td width="10%">uv_andriod</td>
+                    <td width="10%">uv_ios</td>
+                    <td width="20%">uv_windows</td>
+                    <td width="10%">uv_others</td>
+                </tr>
+                <?php foreach($detail as $row):?>
+                    <tr> 
+                        <td width="10%"><?php echo $row['mac'];?></td>
+                        <td width="10%"><?php echo $row['time'];?></td>
+                        <td width="10%"><?php echo $row['pv'];?></td>
+                        <td width="10%"><?php echo $row['download_app_times'];?></td>
+                        <td width="10%"><?php echo $row['uv'];?></td>
+                        <td width="10%"><?php echo $row['uv_android'];?></td>
+                        <td width="10%"><?php echo $row['uv_ios'];?></td>
+                        <td width="20%"><?php echo $row['uv_windows'];?></td>
+                        <td width="10%"><?php echo $row['uv_others'];?></td>             
+                    </tr>
+                <?php endforeach?>
+            </table>
         </div>
     </body>
-    <script src='application/views/bootstrap/js/bootstrap.js'></script>
 </html>
