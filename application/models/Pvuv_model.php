@@ -5,7 +5,7 @@ class Pvuv_model extends CI_Model {
     }
     
     public function totalPvUv(){
-        $sql = "select * from `pvuv-data`";
+        $sql = "select pv,uv from `pvuv-data`";
         
         return $this->db->query($sql)->result_array();
     }
